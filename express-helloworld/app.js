@@ -1,8 +1,16 @@
+const XKEY = process.env.EXAMPLE_KEY || 'invalid_key';
+const XUNITS = process.env.EXAMPLE_UNITS || 'metric';
+
 var express = require('express');
 app = express();
 
 app.get('/', function (req, res) {
-  res.send('<html><body bgcolor=#ffff00>Lets try some good ol HTML!</body></html>');
+  if (XKEY == "yessir"){
+    res.send('<html><body bgcolor=#00ff00>Lets try some good ol HTML!<button>' + XUNITS + '</button></body></html>');
+  }
+  else {
+    res.send('<html><body bgcolor=#ff0000>Lets try some good ol HTML!</body></html>');
+  }
 });
 
 app.get('/another', function (req, res) {
